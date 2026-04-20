@@ -1,91 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>Moje Portfolio</title>
-     <!-- TUTAJ! Wewnątrz sekcji head, ale przed stylem -->
-    <link rel="icon" href="foto.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WK DZIK Style - Modern Shop</title>
     <style>
+        :root {
+            --main-color: #facc15; /* Żółty akcent w stylu DZIK */
+            --bg-dark: #000000;
+            --card-bg: #111111;
+            --text-light: #ffffff;
+        }
+
         body {
-            /* Tło obrazkowe */
-            background-image: url('tlo.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            /* Jeśli tło się nie wczyta, będzie ten kolor: */
-            background-color: #1a1a1a; 
-            
-            color: #00ffcc;
-            font-family: sans-serif;
-            text-align: center;
-            padding-top: 50px;
             margin: 0;
+            font-family: 'Arial Black', sans-serif; /* Mocna typografia */
+            background-color: var(--bg-dark);
+            color: var(--text-light);
         }
 
-        img {
-            width: 300px; /* Zmniejszyłem trochę, żeby było widać resztę strony */
-            height: auto; /* Żeby nie rozciągać obrazka */
-            border-radius: 20px;
-            border: 5px solid #00ffcc;
-            box-shadow: 0 0 20px #00ffcc;
-            margin-top: 20px;
-            cursor: pointer; /* Kursor zmieni się w łapkę po najechaniu */
+        /* --- NAWIGACJA (LOGO-BAR) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(0,0,0,0.9);
+            border-bottom: 2px solid var(--main-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        iframe {
+        .logo { font-size: 1.8rem; color: var(--main-color); }
+        
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placeholder.com'); /* Tu daj tło z produktem */
+            background-size: cover;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 4rem; margin: 0; font-style: italic; }
+        .hero p { font-size: 1.5rem; color: var(--main-color); }
+
+        /* --- SIATKA PRODUKTÓW (GRID) --- */
+        .container { padding: 50px 5%; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #222;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--main-color);
+        }
+
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        
+        .card-info { padding: 20px; text-align: center; }
+        
+        .btn-buy {
             display: block;
-            margin: 30px auto; /* Wyśrodkowanie odtwarzacza */
-            border-radius: 12px;
-            border: 2px solid #00ffcc;
+            background: var(--main-color);
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            border-radius: 5px;
         }
 
-        /* Dodatek: cień pod tekstem, żeby był czytelny na tle zdjęcia */
-        h1, p {
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-        }
+        /* --- STOPKA --- */
+        footer { padding: 40px; text-align: center; background: #050505; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
-    <h1>Witaj na mojej stronie!</h1>
-    <p>Uczę się programowania na GitHubie.</p>
-    
-    <!-- Twój GIF -->
-    <img src="kimmich3.gif" alt="kimmich3.gif">
+    <nav>
+        <div class="logo">DZIK® STYLE</div>
+        <div class="menu">
+            <a href="#">Nowości</a>
+            <a href="#">Napoje</a>
+            <a href="#">Odzież</a>
+            <a href="#">Kontakt</a>
+        </div>
+    </nav>
 
-    <br>
+    <header class="hero">
+        <h1>OGIEŃ W TOBIE</h1>
+        <p>Najmocniejsze suplementy na rynku</p>
+    </header>
 
-    <!-- Twój odtwarzacz YouTube -->
-    <iframe width="400" height="225" src="https://www.youtube.com/embed/6zc99hy3FKA?si=yj2DOe3xiAOrtiDX" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-    <div class="stats-container">
-    <h2>⚽ Kalkulator Szans Meczu</h2>
-    
-    <div class="input-group">
-        <input type="number" id="homeWins" placeholder="Wygrane u siebie">
-        <input type="number" id="awayWins" placeholder="Wygrane na wyjeździe">
-        <input type="number" id="totalMatches" placeholder="Liczba meczów (X)">
+    <div class="container">
+        <h2 style="margin-bottom: 30px;">KATEGORIE DZIKA</h2>
+        <div class="grid">
+            <!-- Karta 1 -->
+            <div class="card">
+                <img src="https://placeholder.com" alt="Produkt">
+                <div class="card-info">
+                    <h3>DZIK® ENERGY</h3>
+                    <p>Smak: Tropikalny</p>
+                    <a href="#" class="btn-buy">SPRAWDŹ</a>
+                </div>
+            </div>
+            <!-- Karta 2 -->
+            <div class="card">
+                <img src="https://placeholder.com" alt="Produkt">
+                <div class="card-info">
+                    <h3>KREATYNA MONO</h3>
+                    <p>Czysta siła</p>
+                    <a href="#" class="btn-buy">SPRAWDŹ</a>
+                </div>
+            </div>
+            <!-- Karta 3 -->
+            <div class="card">
+                <img src="https://placeholder.com" alt="Produkt">
+                <div class="card-info">
+                    <h3>ODZIEŻ DZIK</h3>
+                    <p>Kolekcja PRO</p>
+                    <a href="#" class="btn-buy">SPRAWDŹ</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <button onclick="obliczSzanse()" class="btn">Oblicz szanse</button>
-
-    <div id="wynik" class="result-box">
-        Wpisz dane i kliknij przycisk...
-    </div>
-</div>
-
-
-    <script>
-        const image = document.querySelector('img');
-        image.onclick = function() {
-            // Ponieważ masz tło obrazkowe, usuwamy je najpierw, żeby zobaczyć kolor
-            document.body.style.backgroundImage = "none";
-            
-            const randomColor = Math.floor(Math.random()*16777215).toString(16);
-            document.body.style.backgroundColor = "#" + randomColor;
-            
-            console.log("Kolor zmieniony na #" + randomColor);
-        };
-    </script>
+    <footer>
+        <p>&copy; 2024 Twój Dzik Project. Wszystkie prawa zastrzeżone.</p>
+    </footer>
 
 </body>
 </html>
