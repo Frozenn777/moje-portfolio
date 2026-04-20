@@ -1,93 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Moje Portfolio</title>
     <style>
         body {
-            background-image: #1a1a1a;
+            /* Tło obrazkowe */
+            background-image: url('tlo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Jeśli tło się nie wczyta, będzie ten kolor: */
+            background-color: #1a1a1a; 
+            
             color: #00ffcc;
             font-family: sans-serif;
             text-align: center;
             padding-top: 50px;
-        }
-        img {
-            width: 1440px; /* Szerokość */
-            height: 1080px; /* Wysokość */
-            border-radius: 0%; /* To zrobi kółko ze zdjęcia */
-            border: 5px solid #00ffcc;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Witaj na mojej stronie!</h1>
-    <p>Uczę się programowania na GitHubie.</p>
-    
-    <!-- PONIŻEJ LINIA ODPOWIEDZIALNA ZA ZDJĘCIE -->
-    <img src="kimmich3.gif" alt="kimmich3.gif">
-    
-<script>
-    const image = document.querySelector('img');
-    image.onclick = function() {
-        // Losujemy kolor tła
-        const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        document.body.style.background-image = "#" + randomColor;
-        alert("Kolor tła zmieniony! 🚀");
-    };
-</script>
-
-<!-- Przykład kodu z YouTube -->
-<iframe width="300" height="150" src="https://www.youtube.com/embed/6zc99hy3FKA?si=yj2DOe3xiAOrtiDX" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-<head>
-    <style>
-        body {
-            background-image: #1a1a1a;
-            color: #00ffcc;
-            font-family: sans-serif;
-            text-align: center;
-            padding-top: 50px;
+            margin: 0;
         }
 
         img {
-            width: 250px;
+            width: 300px; /* Zmniejszyłem trochę, żeby było widać resztę strony */
+            height: auto; /* Żeby nie rozciągać obrazka */
             border-radius: 20px;
-            border: 4px solid #00ffcc;
+            border: 5px solid #00ffcc;
             box-shadow: 0 0 20px #00ffcc;
+            margin-top: 20px;
+            cursor: pointer; /* Kursor zmieni się w łapkę po najechaniu */
         }
 
-        /* TUTAJ WKLEJASZ TEN KOD */
-        iframe, audio {
-            margin-top: 20px;
+        iframe {
+            display: block;
+            margin: 30px auto; /* Wyśrodkowanie odtwarzacza */
             border-radius: 12px;
             border: 2px solid #00ffcc;
         }
+
+        /* Dodatek: cień pod tekstem, żeby był czytelny na tle zdjęcia */
+        h1, p {
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
-<body> {
-    background-image: url('tlo.jpg'); /* Tu wpisz nazwę swojego pliku */
-    background-size: cover;           /* To sprawi, że zdjęcie wypełni cały ekran */
-    background-position: center;      /* Wyśrodkuje zdjęcie */
-    background-attachment: fixed;      /* Tło nie będzie się przesuwać przy przewijaniu */
-    color: #00ffcc;
-    font-family: sans-serif;
-    text-align: center;
-    padding-top: 50px;
-}
-</body>
-
-</body> {
-    /* Tu wpisz dokładną nazwę pliku, który wgrałeś */
-    background-image: url('tlo.jpg'); 
-    
-    /* Te 3 linie poniżej są KLUCZOWE, żeby tło ładnie wyglądało */
-    background-size: cover;       /* Zdjęcie wypełni cały ekran */
-    background-position: center;  /* Będzie wyśrodkowane */
-    background-attachment: fixed; /* Tło nie będzie "uciekać" przy przewijaniu */
-    
-    color: #00ffcc;
-    font-family: sans-serif;
-    text-align: center;
-    padding-top: 50px;
-}
 <body>
+
+    <h1>Witaj na mojej stronie!</h1>
+    <p>Uczę się programowania na GitHubie.</p>
+    
+    <!-- Twój GIF -->
+    <img src="kimmich3.gif" alt="kimmich3.gif">
+
+    <br>
+
+    <!-- Twój odtwarzacz YouTube -->
+    <iframe width="400" height="225" src="https://www.youtube.com/embed/6zc99hy3FKA?si=yj2DOe3xiAOrtiDX" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <script>
+        const image = document.querySelector('img');
+        image.onclick = function() {
+            // Ponieważ masz tło obrazkowe, usuwamy je najpierw, żeby zobaczyć kolor
+            document.body.style.backgroundImage = "none";
+            
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = "#" + randomColor;
+            
+            console.log("Kolor zmieniony na #" + randomColor);
+        };
+    </script>
+
+</body>
 </html>
