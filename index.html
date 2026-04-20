@@ -24,5 +24,15 @@
     <!-- PONIŻEJ LINIA ODPOWIEDZIALNA ZA ZDJĘCIE -->
     <img src="foto.jpg" alt="foto.jpg">
     
+<script>
+    const image = document.querySelector('img');
+    image.onclick = function() {
+        // Losujemy kolor tła
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor = "#" + randomColor;
+        alert("Kolor tła zmieniony! 🚀");
+    };
+</script>
+
 </body>
 </html>
